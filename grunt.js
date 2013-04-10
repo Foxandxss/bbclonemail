@@ -27,7 +27,7 @@ module.exports = function(grunt) {
           "public/javascripts/vendor/backbone.marionette.js",
 
           "public/javascripts/bbclonemail/bbclonemail.js",
-          "public/javascripts/bbclonemail/components/appSelector.js",
+          "public/javascripts/bbclonemail/components/selector.js",
           "public/javascripts/bbclonemail/components/appController.js",
 
           "public/javascripts/bbclonemail/mail/categories/categoryView.js",
