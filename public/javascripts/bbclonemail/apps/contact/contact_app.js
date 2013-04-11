@@ -1,6 +1,6 @@
-BBCloneMail.module("ContactsApp", function (ContactsApp, App, Backbone, Marionette, $, _) {
+BBCloneMail.module("ContactApp", function (ContactApp, App, Backbone, Marionette, $, _) {
 
-  ContactsApp.Router = Marionette.AppRouter.extend({
+  ContactApp.Router = Marionette.AppRouter.extend({
     appRoutes: {
       "contacts": "showContacts"
     },
@@ -12,12 +12,12 @@ BBCloneMail.module("ContactsApp", function (ContactsApp, App, Backbone, Marionet
 
   var API = {
     showContacts: function() {
-      console.log("we are on contacts");
+      ContactApp.List.Controller.showContacts();
     }
   };
 
   App.addInitializer(function() {
-    new ContactsApp.Router({
+    new ContactApp.Router({
       controller: API
     });
   });

@@ -47,6 +47,6 @@ BBCloneMail.module("MailApp", function (MailApp, App, Backbone, Marionette, $, _
     new MailApp.Router({
       controller: API
     });
-    App.module("MailApp.Category").start();
+
   });
 });

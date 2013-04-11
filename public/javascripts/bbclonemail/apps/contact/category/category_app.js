@@ -1,4 +1,4 @@
-BBCloneMail.module("MailApp.Category", function (Category, App, Backbone, Marionette, $, _) {
+BBCloneMail.module("ContactApp.Category", function (Category, App, Backbone, Marionette, $, _) {
 
   var API = {
     showCategoriesList: function() {
@@ -7,7 +7,7 @@ BBCloneMail.module("MailApp.Category", function (Category, App, Backbone, Marion
   };
 
   App.vent.on("app:started", function(appName) {
-    if (appName === "mail") {
+    if (appName === "contacts") {
       API.showCategoriesList();
     }
   });

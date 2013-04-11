@@ -11,20 +11,24 @@ BBCloneMail.module("Entities", function (Entities, App, Backbone, Marionette, $,
 
   var API = {
 
-    getAllCategories: function () {
+    getAll: function () {
       var deferred = $.Deferred();
 
-      var categoryCollection = new CategoryCollection();
-      categoryCollection.on("reset", function(categories) {
+      this._getCategories(function(categories) {
         deferred.resolve(categories);
       });
 
-      categoryCollection.fetch();
       return deferred.promise();
+    },
+
+    _getCategories: function(callback) {
+      var categoriesCollection = new CategoryCollection();
+      categoriesCollection.on("reset", callback);
+      categoriesCollection.fetch();
     }
   };
 
   App.reqres.addHandler("categories:entities", function () {
-    return API.getAllCategories();
+    return API.getAll();
   })
 });
