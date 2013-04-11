@@ -2,10 +2,16 @@ BBCloneMail.module("MailApp.List", function (List, App, Backbone, Marionette, $,
 
   List.Controller = {
     showInbox: function() {
-
       var func = _.bind(this._showMailList, this);
 
-      $.when(App.request("all:email:entities"))
+      $.when(App.request("email:entities"))
+        .then(func);
+    },
+
+    showByCategory: function(category) {
+      var func = _.bind(this._showMailList, this);
+
+      $.when(App.request("category:email:entities", category))
         .then(func);
     },
 
