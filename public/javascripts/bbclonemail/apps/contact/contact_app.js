@@ -1,24 +1,31 @@
-BBCloneMail.module("ContactApp", function (ContactApp, App, Backbone, Marionette, $, _) {
+BBCloneMail.module("ContactApp", {
+  startWithParent: false,
+  define: function (ContactApp, App, Backbone, Marionette, $, _) {
 
-  ContactApp.Router = Marionette.AppRouter.extend({
-    appRoutes: {
-      "contacts": "showContacts"
-    },
+    var Router = Marionette.AppRouter.extend({
+      before: function() {
+        App.startSubApp("ContactApp", {});
+      },
 
-    after: function() {
-      App.vent.trigger("app:started", "contacts");
-    }
-  });
-
-  var API = {
-    showContacts: function() {
-      ContactApp.List.Controller.showContacts();
-    }
-  };
-
-  App.addInitializer(function() {
-    new ContactApp.Router({
-      controller: API
+      appRoutes: {
+        "contacts": "showContacts"
+      }
     });
-  });
+
+    var API = {
+      showContacts: function () {
+        ContactApp.List.Controller.showContacts();
+      }
+    };
+
+    App.addInitializer(function () {
+      new Router({
+        controller: API
+      });
+    });
+
+    ContactApp.addInitializer(function() {
+      App.vent.trigger("app:started", "contacts");
+    });
+  }
 });
