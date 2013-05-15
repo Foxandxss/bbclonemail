@@ -1,10 +1,10 @@
 BBCloneMail.module("Entities", function(Entities, App, Backbone, Marionette, $, _) {
   "use strict";
 
-  var Email = Backbone.Model.extend({
+  var Email = App.Entities.Model.extend({
   });
 
-  var EmailCollection = Backbone.Collection.extend({
+  var EmailCollection = App.Entities.Collection.extend({
     model: Email,
     url: "/email"
   });

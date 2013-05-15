@@ -1,7 +1,7 @@
 BBCloneMail.module("Entities", function (Entities, App, Backbone, Marionette, $, _) {
   "use strict";
 
-  var Contact = Backbone.Model.extend({
+  var Contact = App.Entities.Model.extend({
     initialize: function() {
       Backbone.Compute(this);
     },
@@ -14,7 +14,7 @@ BBCloneMail.module("Entities", function (Entities, App, Backbone, Marionette, $,
     }
   });
 
-  var ContactCollection = Backbone.Collection.extend({
+  var ContactCollection = App.Entities.Collection.extend({
     model: Contact,
     url: "/contacts"
   });

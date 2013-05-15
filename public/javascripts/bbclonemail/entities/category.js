@@ -1,10 +1,10 @@
 BBCloneMail.module("Entities", function (Entities, App, Backbone, Marionette, $, _) {
   "use strict";
 
-  var Category = Backbone.Model.extend({
+  var Category = App.Entities.Model.extend({
   });
 
-  var CategoryCollection = Backbone.Collection.extend({
+  var CategoryCollection = App.Entities.Collection.extend({
     model: Category,
     url: "/categories"
   });
