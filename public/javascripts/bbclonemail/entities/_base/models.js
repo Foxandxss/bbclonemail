@@ -1,3 +1,3 @@
 BBCloneMail.module("Entities", function (Entities, App, Backbone, Marionette, $, _) {
-	Entities.Collection = Backbone.Collection.extend({});
+	Entities.Model = Backbone.Model.extend({});
 });
