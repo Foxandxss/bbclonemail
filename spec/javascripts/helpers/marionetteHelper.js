@@ -1,5 +1,5 @@
 function startHistory(){
-  if (!Backbone.hisory){
+  if (!Backbone.history){
     // Initial router that provides a route we don't use
     // so Backbone.history will exist
     var router = new (Backbone.Router.extend({ 
